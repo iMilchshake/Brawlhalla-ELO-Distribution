@@ -8,6 +8,8 @@ This is a bundle of python scripts that let you scrape the brawlhalla leaderboar
 4. Scrape data from the Brawlhalla leaderboard using **scrapeleaderboard.py**
 5. Generate plot using **visualize.py**
 
+(You can also just skip Step 1-4 and use the **visualize.py** script to visualize the provided .csv files)
+
 # Settings
 < WIP >
 
