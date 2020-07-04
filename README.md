@@ -14,7 +14,7 @@ This is a bundle of python scripts that let you scrape the brawlhalla leaderboar
 < WIP >
 
 # Collected Data (July 2020)
-Them 1v1 distribution seems to be really similar for the regions, except Japan.
+The 1v1 distribution seems to be really similar for the regions, except Japan.
 
 | 1v1      | US-E  | EU    | SEA   | BRZ   | AUS   | US-W  | JPN   |
 |----------|-------|-------|-------|-------|-------|-------|-------|
