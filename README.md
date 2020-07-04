@@ -11,6 +11,18 @@ This is a bundle of python scripts that let you scrape the brawlhalla leaderboar
 # Settings
 < WIP >
 
-## Example Plots:
-![EU 1v1](example_plots/BrawlhallaEloDistributionEU1v1_V1.png)
-![EU 2v2](example_plots/BrawlhallaEloDistributionEU2v2_V1.png)
+# Collected Data (July 2020)
+Them 1v1 distribution seems to be really similar for the regions, except Japan.
+
+| 1v1      | US-E  | EU    | SEA   | BRZ   | AUS   | US-W  | JPN   |
+|----------|-------|-------|-------|-------|-------|-------|-------|
+| Tin      | 0.72% | 0.77% | 0.63% | 0.72% | 0.64% | 0.74% | 0.25% |
+| Bronze   | 16%   | 16%   | 16%   | 17%   | 17%   | 16%   | 13%   |
+| Silver   | 69%   | 70%   | 71%   | 70%   | 69%   | 70%   | 78%   |
+| Gold     | 12%   | 11%   | 10%   | 11%   | 11%   | 11%   | 7%    |
+| Platinum | 2%    | 1.8%  | 2.1%  | 1.8%  | 2.1%  | 1.9%  | 1.2%  |
+| Diamond  | 0.23% | 0.19% | 0.29% | 0.22% | 0.36% | 0.19% | 0.25% |
+
+## Example Plots (1v1):
+![AUS 1v1](example_plots/1v1_aus.png)
+![JPN 1v1](example_plots/1v1_jpn.png)

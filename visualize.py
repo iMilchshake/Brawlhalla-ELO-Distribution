@@ -2,8 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Settings
-FILENAME = "<inputfile>.csv"
-TITLE = "<Title for the Plot>"
+FILENAME = "data/elocurve_1v1_jpn_cap_1220_start_1_max_7_multip_1.05_371.csv"   # file to display
 
 # Brawlhalla ELO Tiers
 bins = [(200, 719),
@@ -78,6 +77,7 @@ print("dia: %s" % p_dia)
 SMALL_SIZE = 10
 MEDIUM_SIZE = 12
 BIGGER_SIZE = 16
+plt.style.use('grayscale')
 
 plt.rc('font', size=SMALL_SIZE)  # controls default text sizes
 plt.rc('axes', titlesize=BIGGER_SIZE)  # fontsize of the axes title
@@ -85,15 +85,13 @@ plt.rc('axes', labelsize=MEDIUM_SIZE)  # fontsize of the x and y labels
 plt.rc('xtick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
 plt.rc('ytick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
-plt.style.use('grayscale')
 
 fig, ax = plt.subplots()
-
-tin = ax.bar(np.arange(0, 6), rating_bins[0:6], color='#325432')
-bronze = ax.bar(np.arange(6, 11), rating_bins[6:11], color='#e7c076')
-silver = ax.bar(np.arange(11, 16), rating_bins[11:16], color='#b0b0b0')
-gold = ax.bar(np.arange(16, 21), rating_bins[16:21], color='#830314')
-plat = ax.bar(np.arange(21, 26), rating_bins[21:26], color='#77c4f7')
+tin = ax.bar(np.arange(0, 6), rating_bins[0:6], color='#325432', linewidth=1, edgecolor='black')
+bronze = ax.bar(np.arange(6, 11), rating_bins[6:11], color='#b58957', linewidth=1, edgecolor='black')  # e7c076
+silver = ax.bar(np.arange(11, 16), rating_bins[11:16], color='#b0b0b0', linewidth=1, edgecolor='black')
+gold = ax.bar(np.arange(16, 21), rating_bins[16:21], color='#e4ae45', linewidth=1, edgecolor='black')  # 830314
+plat = ax.bar(np.arange(21, 26), rating_bins[21:26], color='#77c4f7', linewidth=1, edgecolor='black')
 dia = ax.bar(26, rating_bins[26], color='#341a8e')
 
 plt.xticks([2.5, 8, 13, 18, 23, 26], ["Tin\n%s%%" % p_tin,
@@ -103,7 +101,7 @@ plt.xticks([2.5, 8, 13, 18, 23, 26], ["Tin\n%s%%" % p_tin,
                                       "Platinum\n%s%%" % p_plat,
                                       "Diamond\n%s%%" % p_dia])
 
-plt.title(TITLE)
+plt.title("Brawlhalla ELO Distribution - %s %s" % (FILENAME.split("_")[1].upper(), FILENAME.split("_")[2].upper()))
 ax.set_xlabel('ELO')
 ax.set_ylabel('Amount')
 plt.show()

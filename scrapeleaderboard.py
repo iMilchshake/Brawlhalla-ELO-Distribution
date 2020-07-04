@@ -4,26 +4,22 @@ import math
 from scipy.interpolate import interp1d
 
 # SETTINGS
-API_KEY = "< YOUR API KEY >"
-BRACKET = "1v1"
-REGION = "eu"
-CAP = 23333  # current last page of leaderboard
-START_PAGE = 1  # page to start at
-START_STEP = 1
-MAX_STEP = 25
-STEP_MULTIPLIER = 1.1
-
+API_KEY = "<YOUR API KEY>"                  # Your API Key
+BRACKET = "1v1"                             # 1v1 or 2v2
+REGION = "jpn"                              # all/us-e/eu/sea/brz/aus/us-w/jpn
+CAP = 1220                                  # last page of leaderboard
+START_STEP = 1                              # starts with this step size
+MAX_STEP = 10                               # maximum possible step size
+STEP_MULTIPLIER = 1.05                      # step size will be multiplied after every step
+START_PAGE = 1                              # start crawling from here
 
 
 def approx():
-    filename = "elocurve_%s_%s_cap_%s_start_%s_max_%s_multip_%s_%s.csv" % (BRACKET,
-                                                                           REGION,
-                                                                           CAP,
-                                                                           START_STEP,
-                                                                           MAX_STEP,
-                                                                           STEP_MULTIPLIER,
-                                                                           time.gmtime().tm_min * time.gmtime().tm_sec)
+    filename = "data/elocurve_%s_%s_cap_%s_start_%s_max_%s_multip_%s_%s.csv" % (BRACKET, REGION, CAP, START_STEP,
+                                                                                MAX_STEP, STEP_MULTIPLIER,
+                                                                                time.gmtime().tm_min * time.gmtime().tm_sec)
     print("filename: %s" % filename)
+    print("this will take about %.2g Hours" % (CAP / (720 * MAX_STEP)))
 
     # initialize variables
     step = START_STEP
@@ -40,6 +36,8 @@ def approx():
                 print("%s;%s" % (page, response.json()[0]['rating']))
                 x.append(page)
                 y.append(response.json()[0]['rating'])
+
+                # increase step
                 page += math.floor(step)
                 if step < MAX_STEP:  # step cant exceed MAX_STEP
                     step = step * STEP_MULTIPLIER
@@ -73,4 +71,6 @@ def approx():
 
 
 if __name__ == "__main__":
+    t = time.time()
     approx()
+    print("Took %.2g Minutes" % ((time.time() - t)/60))
